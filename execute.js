@@ -112,8 +112,8 @@ join(_proxies(), function(proxies) {
               console.log('systems execute - additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer);
 
               var _layers = _proxies().proxy().layers();
-              _layers.layer().setproxies(proxies);
               var _layer = _layers.layer();
+              _layer.setproxies(proxies);
               console.log('systems execute - layer: ', _layer);
               for (var key in _layer) {
                   var keyLayer = key;
