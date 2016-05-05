@@ -13,7 +13,7 @@ function System() {
   // add key value pairs here
   // self's are not directly publicly accessible, only through their public method(s)
   // use self's here for protection from direct access
-  self._proxies = {};  // will be set, before passing on to mapping
+  self._proxies = {};  // will be set
 }
 
 System.prototype.proxies = function() {
@@ -22,6 +22,10 @@ System.prototype.proxies = function() {
 
 System.prototype.setproxies = function(fnOrValue) {
   self._proxies = fnOrValue;
+}
+
+System.prototype.execute = function() {
+  
 }
 
 module.exports = System;
