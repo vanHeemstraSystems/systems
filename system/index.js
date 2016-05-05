@@ -9,7 +9,7 @@ var self = this; // set the context locally, for access protection
  * @return {System}
  */
 function System() {
-  console.log('sytems system - System called'); 
+  console.log('systems system - System called'); 
   // add key value pairs here
   // self's are not directly publicly accessible, only through their public method(s)
   // use self's here for protection from direct access
