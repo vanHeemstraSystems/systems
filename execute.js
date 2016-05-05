@@ -46,6 +46,7 @@ join(_proxies(), function(proxies) {
   var instructionsForInstructions = {};
   var uuid = {};
   var additionalArgument = {};
+  var arrayOfPromises = [];
   // process.argv is an array containing the command line arguments. 
   // The first element will be 'node', the second element will be the name of the JavaScript file. 
   // The next elements will be any additional command line arguments.
@@ -108,32 +109,6 @@ join(_proxies(), function(proxies) {
                 console.log('systems execute - resourceForUuid: ', resourceForUuid);
               }
 
-              //layer = additionalArgument.layer;
-              console.log('systems execute - additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer);
-
-              var _layers = _proxies().proxy().layers();
-              var _layer = _layers.layer();
-              _layer.setproxies(proxies);
-              console.log('systems execute - layer: ', _layer);
-              for (var key in _layer) {
-                  var keyLayer = key;
-                  console.log('systems execute - keyLayer: ', keyLayer);
-                  if(additionalArgument.system[i].layer == keyLayer) {
-                    console.log('systems execute - layer == keyLayer');
-                    // do something
-                    layerForLayer = _layer[key]();
-                    break;
-                  }
-              }
-              // Validate layerForLayer
-              if(Object.keys(layerForLayer).length == 0) {
-                // raise an error, the layerForLayer has not been found
-                throw new Error('No layer found for additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer); // TO FIX: for some reason the value of layer is empty here
-              }
-              else {
-                console.log('systems execute - layerForLayer: ', layerForLayer);
-              }
-
               console.log('systems execute - additionalArgument.system[',i,'].instructions: ', additionalArgument.system[i].instructions);
               var _instructions = _proxies().proxy().instructions();
               var _instruction = _instructions.instruction();
@@ -156,6 +131,40 @@ join(_proxies(), function(proxies) {
                 console.log('systems execute - instructionsForInstructions: ', instructionsForInstructions);
               }
 
+              //layer = additionalArgument.layer;
+              console.log('systems execute - additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer);
+
+              var _layers = _proxies().proxy().layers();
+              var _layer = _layers.layer();
+              _layer.setproxies(proxies);
+              _layer.setresource(resourceForUuid);
+              _layer.setinstructions(instructionsForInstructions);
+              console.log('systems execute - layer: ', _layer);
+              for (var key in _layer) {
+                  var keyLayer = key;
+                  console.log('systems execute - keyLayer: ', keyLayer);
+                  if(additionalArgument.system[i].layer == keyLayer) {
+                    console.log('systems execute - layer == keyLayer');
+                    // do something
+                    layerForLayer = _layer[key]();
+                    break;
+                  }
+              }
+              // Validate layerForLayer
+
+          //    if(Object.keys(layerForLayer).length == 0) {  // THIS VALIDATES IF THERE ARE KEYS WITHIN e.g. Business LAYER, NOT A GOOD CHECK, CHANGE IT!!
+
+                  // raise an error, the layerForLayer has not been found
+          //      throw new Error('No layer found for additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer); // TO FIX: for some reason the value of layer is empty here
+          //    }
+          //    else {
+              console.log('systems execute - layerForLayer: ', layerForLayer);
+
+              // NOW MAKE THE LAYER DO ITS THING, EXECUTE ITS FUNCTION THAT RETURNS A PROMISE
+              arrayOfPromises.push(layerForLayer.execute()); // add the function that returns a Promise 
+
+          //    } // eof else
+
             } // eof for additionalArgument.system.length
           } // eof if additionalArgument
         } // eof try
@@ -169,34 +178,14 @@ join(_proxies(), function(proxies) {
     } // eof switch
   }); // forEach
 
- 	return resourceForUuid;
+  // WE RETURN AN ARRAY OF ALL PROMISES FROM THE LAYERS
+ 	return arrayOfPromises;
 
 }) //eof then proxies
-.then(function(resourceForUuid) {
+.then(function(arrayOfPromises) {
+  console.log('systems execute - arrayOfPromises: ', arrayOfPromises);
 
-  // Set the resource to the layer, and let the layer handle the mains.main object for further processing....
-  // _layer.setresource(resourceForUuid);
-  // _layer.run(); // a function that returns a Promise
-
-            // MOVE BELOW TO THE SPECIFIC LAYER (e.g. business)
-
-            console.log('systems execute - resourceForUuid: ', resourceForUuid); // Works: e.g. _6e8bc430_9c3a_11d9_9669_0800200c9a66 { URI: 'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66' }
-
-            var main = _proxies().proxy().mains().main();
-            console.log('systems execute - main: ', main);
-            main.setproxies(_proxies);
-
-            console.log('systems execute - main.proxies(): ', main.proxies());
-
-            main.setresource(resourceForUuid); 
-
-            console.log('systems execute - main.resource(): ', main.resource());
-            
-            // Start of the run chain
-            join(main.run(), function(run) {
-              console.log('systems execute - run: ', run);
-              return(run);
-            }); // eof join main.run()
+  // resolve the arrayOfPromises here
 
 
   
