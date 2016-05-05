@@ -77,67 +77,84 @@ join(_proxies(), function(proxies) {
             console.log('systems execute - additionalArgument.system.length: ', additionalArgument.system.length);
 
             for (var i = 0; i < additionalArgument.system.length; i++) {
-                console.log('systems execute - additionalArgument.system[',i,']: ', additionalArgument.system[i]);
+              console.log('systems execute - additionalArgument.system[',i,']: ', additionalArgument.system[i]);
 
+              console.log('systems execute - additionalArgument.system[',i,'].uuid: ', additionalArgument.system[i].uuid);
+              // Get a resource, by comparing with the uuid
+  //            console.log('systems execute - resource: ', _proxies().proxy().resources().resource); // function () { return new ResourcesResource(); }
+  //            console.log('systems execute - _proxies().proxy().resources().resource(): ', _proxies().proxy().resources().resource());  // Resource {}
+  //            console.log('systems execute - _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66: ', _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66);
+  //            console.log('systems execute - _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66(): ', _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66());
+              var _resource = _proxies().proxy().resources().resource();
+              console.log('systems execute - resource: ', _resource);
+              for (var key in _resource) {
+                console.log('systems execute - key: ', key);
+                // strip prefix _ if present on key, then substitute all _ for - if present on key
+                  var keyUuid = key.replace(/^\_/, "").replace(/_/g, "\-");
+                  console.log('systems execute - keyUuid: ', keyUuid);
+                  if(additionalArgument.system[i].uuid == keyUuid) {
+                    console.log('systems execute - uuid == keyUuid');
+                    // do something
+                    resourceForUuid = _resource[key]();
+                    break;
+                  }
+              }
+              // Validate resourceForUuid
+              if(Object.keys(resourceForUuid).length == 0) {
+                // raise an error, the resourceForUuid has not been found
+                throw new Error('No resource found for additionalArgument.system[',i,'].uuid: ', additionalArgument.system[i].uuid); // TO FIX: for some reason the value of uuid is empty here
+              }
+              else {
+                console.log('systems execute - resourceForUuid: ', resourceForUuid);
+              }
 
-                    console.log('systems execute - additionalArgument.system[',i,'].uuid: ', additionalArgument.system[i].uuid);
-                    // Get a resource, by comparing with the uuid
-        //            console.log('systems execute - resource: ', _proxies().proxy().resources().resource); // function () { return new ResourcesResource(); }
-        //            console.log('systems execute - _proxies().proxy().resources().resource(): ', _proxies().proxy().resources().resource());  // Resource {}
-        //            console.log('systems execute - _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66: ', _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66);
-        //            console.log('systems execute - _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66(): ', _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66());
-                    var _resource = _proxies().proxy().resources().resource();
-                    console.log('systems execute - resource: ', _resource);
-                    for (var key in _resource) {
-                      console.log('systems execute - key: ', key);
-                      // strip prefix _ if present on key, then substitute all _ for - if present on key
-                        var keyUuid = key.replace(/^\_/, "").replace(/_/g, "\-");
-                        console.log('systems execute - keyUuid: ', keyUuid);
-                        if(additionalArgument.system[i].uuid == keyUuid) {
-                          console.log('systems execute - uuid == keyUuid');
-                          // do something
-                          resourceForUuid = _resource[key]();
-                          break;
-                        }
-                    }
-                    console.log('systems execute - resourceForUuid: ', resourceForUuid);
+              //layer = additionalArgument.layer;
+              console.log('systems execute - additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer);
 
-                    //layer = additionalArgument.layer;
-                    console.log('systems execute - additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer);
+              var _layers = _proxies().proxy().layers();
+              _layers.layer().setproxies(proxies);
+              var _layer = _layers.layer();
+              console.log('systems execute - layer: ', _layer);
+              for (var key in _layer) {
+                  var keyLayer = key;
+                  console.log('systems execute - keyLayer: ', keyLayer);
+                  if(additionalArgument.system[i].layer == keyLayer) {
+                    console.log('systems execute - layer == keyLayer');
+                    // do something
+                    layerForLayer = _layer[key]();
+                    break;
+                  }
+              }
+              // Validate layerForLayer
+              if(Object.keys(layerForLayer).length == 0) {
+                // raise an error, the layerForLayer has not been found
+                throw new Error('No layer found for additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer); // TO FIX: for some reason the value of layer is empty here
+              }
+              else {
+                console.log('systems execute - layerForLayer: ', layerForLayer);
+              }
 
-                    var _layers = _proxies().proxy().layers();
-                    _layers.layer().setproxies(proxies);
-                    var _layer = _layers.layer();
-                    console.log('systems execute - layer: ', _layer);
-                    for (var key in _layer) {
-                        var keyLayer = key;
-                        console.log('systems execute - keyLayer: ', keyLayer);
-                        if(additionalArgument.system[i].layer == keyLayer) {
-                          console.log('systems execute - layer == keyLayer');
-                          // do something
-                          layerForLayer = _layer[key]();
-                          break;
-                        }
-                    }
-                    console.log('systems execute - layerForLayer: ', layerForLayer);
+              console.log('systems execute - additionalArgument.system[',i,'].instructions: ', additionalArgument.system[i].instructions);
+              var _instructions = _proxies().proxy().instructions();
+              var _instruction = _instructions.instruction();
+              console.log('systems execute - instruction: ', _instruction);
+              for (var key in _instruction) {
+                  var keyLayer = key;            
+                  // HANDLE THE instructions HERE LIKEWISE, BUT BREAK IT DOWN PER instruction
 
-                    console.log('systems execute - additionalArgument.system[',i,'].instructions: ', additionalArgument.system[i].instructions);
-                    var _instructions = _proxies().proxy().instructions();
-                    var _instruction = _instructions.instruction();
-                    console.log('systems execute - instruction: ', _instruction);
-                    for (var key in _instruction) {
-                        var keyLayer = key;            
-                        // HANDLE THE instructions HERE LIKEWISE, BUT BREAK IT DOWN PER instruction
+                     // TEMP PLACEHOLDER
+                     instructionsForInstructions = [{"start":"true"}];
+                     break;
 
-                           // TEMP PLACEHOLDER
-                           instructionsForInstructions = [{"start":"true"}];
-                           break;
-
-                    } // eof for
-
-
-
-
+              } // eof for
+              // Validate instructionsForInstructions
+              if(Object.keys(instructionsForInstructions).length == 0) {
+                // raise an error, the instructionForInstruction has not been found
+                throw new Error('No instructions found for additionalArgument.system[',i,'].instructions: ', additionalArgument.system[i].instructions); // TO FIX: for some reason the value of instruction is empty here
+              }
+              else {
+                console.log('systems execute - instructionsForInstructions: ', instructionsForInstructions);
+              }
 
             } // eof for additionalArgument.system.length
           } // eof if additionalArgument
@@ -151,38 +168,9 @@ join(_proxies(), function(proxies) {
       break;
     } // eof switch
   }); // forEach
-  // Validate resourceForUuid
-  if(Object.keys(resourceForUuid).length == 0) {
-  	// raise an error, the resourceForUuid has not been found
-  	throw new Error("No resource found for additionalArgument.uuid: ", additionalArgument.uuid); // TO FIX: for some reason the value of uuid is empty here
-  } 
-  // Validate layerForLayer
-  else if(Object.keys(layerForLayer).length == 0) {
-    // raise an error, the layerForLayer has not been found
-    throw new Error("No layer found for additionalArgument.layer: ", additionalArgument.layer); // TO FIX: for some reason the value of layer is empty here
-  }
-  // Validate instructionsForInstructions
-  else if(Object.keys(instructionsForInstructions).length == 0) {
-    // raise an error, the instructionForInstruction has not been found
-    throw new Error("No instruction found for additionalArgument.instructions: ", additionalArgument.instructions); // TO FIX: for some reason the value of instruction is empty here
-  }
-  else {
 
-    // Loop through the collection of keys of layers.layer
+ 	return resourceForUuid;
 
-
-    // if additionalArgument.layer matches with a key
-    // set layer to the specific (e.g. 'business') layer.
-    // _layer = _layers().layer().business();    ..... not sure yet, but the chosen layer should be held responsible for further processing of the main object.
-    // it can access the mains.main object from the _proxies it has as one of its properties
-
-
-    // Loop through the collection of keys of instructions.instruction
-
-
-
-  	return resourceForUuid;
-  };
 }) //eof then proxies
 .then(function(resourceForUuid) {
 
