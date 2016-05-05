@@ -77,10 +77,10 @@ join(_proxies(), function(proxies) {
             console.log('systems execute - additionalArgument.system.length: ', additionalArgument.system.length);
 
             for (var i = 0; i < additionalArgument.system.length; i++) {
-                console.log('systems execute - additionalArgument.system[i]: ', additionalArgument.system[i]);
+                console.log('systems execute - additionalArgument.system[',i,']: ', additionalArgument.system[i]);
 
 
-                    console.log('systems execute - additionalArgument.system[i].uuid: ', additionalArgument.system[i].uuid);
+                    console.log('systems execute - additionalArgument.system[',i,'].uuid: ', additionalArgument.system[i].uuid);
                     // Get a resource, by comparing with the uuid
         //            console.log('systems execute - resource: ', _proxies().proxy().resources().resource); // function () { return new ResourcesResource(); }
         //            console.log('systems execute - _proxies().proxy().resources().resource(): ', _proxies().proxy().resources().resource());  // Resource {}
@@ -103,7 +103,7 @@ join(_proxies(), function(proxies) {
                     console.log('systems execute - resourceForUuid: ', resourceForUuid);
 
                     //layer = additionalArgument.layer;
-                    console.log('systems execute - additionalArgument.layer: ', additionalArgument.system[i].layer);
+                    console.log('systems execute - additionalArgument.system[',i,'].layer: ', additionalArgument.system[i].layer);
 
                     var _layers = _proxies().proxy().layers();
                     _layers.layer().setproxies(proxies);
@@ -121,7 +121,7 @@ join(_proxies(), function(proxies) {
                     }
                     console.log('systems execute - layerForLayer: ', layerForLayer);
 
-                    console.log('systems execute - additionalArgument.instructions: ', additionalArgument.system[i].instructions);
+                    console.log('systems execute - additionalArgument.system[',i,'].instructions: ', additionalArgument.system[i].instructions);
                     var _instructions = _proxies().proxy().instructions();
                     var _instruction = _instructions.instruction();
                     console.log('systems execute - instruction: ', _instruction);
