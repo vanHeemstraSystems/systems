@@ -42,8 +42,8 @@ join(_proxies(), function(proxies) {
 }) //eof join proxies
 .then(function(proxies) {
   var resourceForUuid = {};
-  var layerForUuid = {};
-  var instructionsForUuid = {};
+  var layerForLayer = {};
+  var instructionsForInstructions = {};
   var uuid = {};
   var additionalArgument = {};
   // process.argv is an array containing the command line arguments. 
