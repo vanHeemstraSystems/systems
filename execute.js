@@ -17,7 +17,7 @@ console.log('systems execute - called');
 // Required modules
 var _instructions = {};
 var instruction = {};
-var _proxies = require('../../proxies/proxies');
+var _proxies = require('../proxies/proxies');
 // ONLY ENDPOINTS OF _proxies ARE Promises, e.g. _proxies().proxy().libraries().library().path()
 // WE POSTPONE TO USE A Promise DOWN THE OBJECT HIERARCHY AS FAR DOWN AS FEASIBLE
 // UNTIL WE NEED THE Promise RESOLVED
