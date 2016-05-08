@@ -1,0 +1,19 @@
+{
+  "name": "systems",
+  "version": "1.0.0",
+  "description": "The Systems Subtree",
+  "main": "systems.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanHeemstraSystems/systems.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vanHeemstraSystems/systems/issues"
+  },
+  "homepage": "https://github.com/vanHeemstraSystems/systems#readme"
+}
