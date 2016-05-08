@@ -184,7 +184,6 @@ join(_proxies(), function(proxies) {
 }) //eof then proxies
 .then(function(arrayOfPromises) {
   console.log('systems execute - arrayOfPromises: ', arrayOfPromises);
-
   _proxies().proxy().libraries().library().promise()
   .all(arrayOfPromises)
   .catch(function(error) {
@@ -193,7 +192,6 @@ join(_proxies(), function(proxies) {
   .finally(function(){
     console.log('systems execute - all finally');
   });
-
 }) // eof then resourceForUuid
 .catch(function(error) {
   console.log('systems execute - error: ', error);
