@@ -1,7 +1,7 @@
 /*
- * systems.js
+ * Filename: systems.js
  */
-var SystemsSystem = require(__dirname+'/system.js');
+var SystemsSystem = require(__dirname + '/system.js');
 
 /**
  * Create a new Systems that let users create sub-systems.
