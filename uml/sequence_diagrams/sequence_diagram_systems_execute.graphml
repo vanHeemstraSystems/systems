@@ -420,7 +420,6 @@
       </data>
     </node>
     <node id="n23">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="108.0" x="762.0" y="-108.5"/>
@@ -438,7 +437,6 @@
       </data>
     </node>
     <node id="n24">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="98.0" x="592.0" y="-108.5"/>
@@ -456,7 +454,6 @@
       </data>
     </node>
     <node id="n25">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="626.0" y="-78.5"/>
@@ -640,7 +637,7 @@
           <y:Path sx="-14.964836407304574" sy="53.456371761910134" tx="14.9609375" ty="133.95637176191008"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="46.6796875" x="-206.75102239991497" y="-9.350574038871173">promise<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="54.671875" x="-211.3693560836366" y="-9.350574038871173">promise()<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -849,7 +846,6 @@
       </data>
     </edge>
     <edge id="e28" source="n25" target="n14">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.007976911534228748" sy="3.3870553288278984" tx="-14.976736389002212" ty="-21.893506619251067"/>
