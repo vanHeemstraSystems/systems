@@ -40,6 +40,10 @@ process.argv.forEach(function(val, index, array) {
         val)
       try {
         additionalArgument = JSON.parse(val);
+        _system.setfilename('index.html'); // Make configurable
+        console.log('systems execute - filename: ', _system.filename());
+        _system.setfilepath(__dirname + '/docs/'); // Make configurable
+        console.log('systems execute - filepath: ', _system.filepath());
         var _result = _system.execute(additionalArgument);
         console.log('systems execute - result: ', _result);
       }

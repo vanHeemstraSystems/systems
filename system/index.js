@@ -11,7 +11,9 @@ function System() {
   // add key value pairs here
   // self's are not directly publicly accessible, only through their public method(s)
   // use self's here for protection from direct access
-  self._proxies = {};  // Will be set
+  self._filename = ''; // Will be set
+  self._filepath = ''; // Will be set
+  self._proxies = {}; // Will be set
 }
 
 System.prototype.proxies = function() {
@@ -20,6 +22,22 @@ System.prototype.proxies = function() {
 
 System.prototype.setproxies = function(fnOrValue) {
   self._proxies = fnOrValue;
+}
+
+System.prototype.filename = function() {
+  return self._filename;
+}
+
+System.prototype.setfilename = function(fnOrValue) {
+  self._filename = fnOrValue;
+}
+
+System.prototype.filepath = function() {
+  return self._filepath;
+}
+
+System.prototype.setfilepath = function(fnOrValue) {
+  self._filepath = fnOrValue;
 }
 
 System.prototype.execute = function(arguments) {
@@ -42,9 +60,24 @@ System.prototype.execute = function(arguments) {
   join(_proxies(), function(proxies) {
     console.log('systems system execute - proxies: ',
       proxies) // Works: Proxies {}
+    self._proxies = proxies;
     return (proxies);
   }) /* EOF join proxies */
   .then(function(proxies) {
+
+    var _documentation = self._proxies.proxy().documentations().documentation();
+    console.log('systems system execute - documentation: ',
+      _documentation) // Works: Documentation {}
+    _documentation.setfilename(self._filename);
+    _documentation.setfilepath(self._filepath);
+    _documentation.setproxies(self._proxies);
+
+    // FOR TESTING ONLY!
+    var _sequencediagram = _documentation.uml().sequencediagram();
+    console.log('systems system execute - sequencediagram: ',
+      _sequencediagram) // Works: Proxies {}
+    _sequencediagram.append();
+
 
     var resourceForUuid = {};
     var layerForLayer = {};
@@ -96,7 +129,7 @@ System.prototype.execute = function(arguments) {
          * Note: console.log('systems execute - _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66(): ', 
          *         _proxies().proxy().resources().resource()._6e8bc430_9c3a_11d9_9669_0800200c9a66());
          */
-        var _resource = _proxies().proxy().resources().resource();
+        var _resource = self._proxies.proxy().resources().resource();
         console.log('systems system execute - resource: ', _resource)
         for (var key in _resource) {
           console.log('systems system execute - key: ', key)
@@ -128,7 +161,7 @@ System.prototype.execute = function(arguments) {
         console.log('systems system execute - \
             additionalArgument.system[',i,'].instructions: ',
             additionalArgument.system[i].instructions)
-        var _instructions = _proxies().proxy().instructions();
+        var _instructions = self._proxies.proxy().instructions();
         var _instruction = _instructions.instruction();
         console.log('systems system execute - instruction: ', _instruction)
         for (var key in _instruction) {
@@ -153,7 +186,7 @@ System.prototype.execute = function(arguments) {
         console.log('systems system execute - \
             additionalArgument.system[',i,'].layer: ',
             additionalArgument.system[i].layer)
-        var _layers = _proxies().proxy().layers();
+        var _layers = self._proxies.proxy().layers();
         var _layer = _layers.layer();
         _layer.setproxies(proxies);
         _layer.setresource(resourceForUuid);
@@ -192,7 +225,7 @@ System.prototype.execute = function(arguments) {
   }) // EOF then proxies
   .then(function(arrayOfPromises) {
     console.log('systems system execute - arrayOfPromises: ', arrayOfPromises)
-    _proxies().proxy().libraries().library().promise()
+    self._proxies.proxy().libraries().library().promise()
     .all(arrayOfPromises)
     .catch(function(error) {
       console.log('systems system execute - all error: ', error)
