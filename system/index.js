@@ -90,7 +90,6 @@ System.prototype.execute = function(arguments) {
     _documentations.setproxies(_proxies);
     _documentations.setfilepath(_filepath);
     _documentations.setfilename(_filename);
-    _documentations.setproxies(_proxies);
     var _title = 'Documentations';
     var _linktitle = 'Documentation';
     var _document = 'documentation.html';
@@ -106,6 +105,8 @@ System.prototype.execute = function(arguments) {
 
     console.log('systems system execute - documentation: ',
       _documentation) // Works: Documentation {}
+    _documentation.setfilepath(_filepath);
+    _documentations.setfilename(_filename);
     var _title = 'Documentation';
     var _linktitle = 'UML';
     var _document = 'uml.html';
@@ -126,6 +127,8 @@ System.prototype.execute = function(arguments) {
 
     console.log('systems system execute - uml: ',
       _uml) // Works: UML {}
+    _uml.setfilepath(_filepath);
+    _uml.setfilename(_filename);
     var _title = 'UML';
     var _linktitle = 'Sequence Diagram';
     var _document = 'sequencediagram.html';
@@ -145,6 +148,8 @@ System.prototype.execute = function(arguments) {
 
     console.log('systems system execute - sequencediagram: ',
       _sequencediagram) // Works: SequenceDiagram {}
+    _sequencediagram.setfilepath(_filepath);
+    _sequencediagram.setfilename(_filename);
     var _title = 'Sequence Diagram';
     var _linktitle = 'Foo';
     var _document = 'foo.html';
