@@ -89,6 +89,16 @@ System.prototype.execute = function(arguments) {
     var _documentations = _proxies().proxy().documentations();
     _documentations.setproxies(_proxies);
     _documentations.setfilepath(_filepath);
+    _documentations.setfilename(_filename);
+    _documentations.setproxies(_proxies);
+    var _title = 'Documentations';
+    var _linktitle = 'Documentation';
+    var _document = 'documentation.html';
+    var _directory = 'documentation';
+    _documentations.append('<title>' + _title + '</title>'
+      ,'<h1>' + _title +
+      '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
+      ' + _linktitle + '</a></li></ul>');
 
     var _documentation = _documentations.documentation();
 
@@ -96,26 +106,57 @@ System.prototype.execute = function(arguments) {
 
     console.log('systems system execute - documentation: ',
       _documentation) // Works: Documentation {}
-    var _document = 'documentation.html';
-    var _directory = 'documentation';
-    _documentation.setfilename(_filename);
-    _documentation.setfilepath(_filepath);
-    _documentation.setproxies(_proxies);
+    var _title = 'Documentation';
+    var _linktitle = 'UML';
+    var _document = 'uml.html';
+    var _directory = 'uml';
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 002')
 
     _documentation.append('<title>' + _title + '</title>'
       ,'<h1>' + _title +
       '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
-      Documentation</a></li></ul>');
+      ' + _linktitle + '</a></li></ul>');
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 003')
 
-    // FOR TESTING ONLY!
-  //  var _sequencediagram = _documentation.uml().sequencediagram();
-  //  console.log('systems system execute - sequencediagram: ',
-  //    _sequencediagram) // Works: Proxies {}
-  //  _sequencediagram.append();
+    var _uml = _documentation.uml();
+
+    console.log('systems system execute - documentation +++++++ CHECKPOINT 004')
+
+    console.log('systems system execute - uml: ',
+      _uml) // Works: UML {}
+    var _title = 'UML';
+    var _linktitle = 'Sequence Diagram';
+    var _document = 'sequencediagram.html';
+    var _directory = 'sequencediagram';
+
+    console.log('systems system execute - documentation +++++++ CHECKPOINT 005')
+
+    _uml.append('<title>' + _title + '</title>'
+      ,'<h1>' + _title +
+      '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
+      ' + _linktitle + '</a></li></ul>');
+
+
+    var _sequencediagram = _uml.sequencediagram();
+
+    console.log('systems system execute - documentation +++++++ CHECKPOINT 006')
+
+    console.log('systems system execute - sequencediagram: ',
+      _sequencediagram) // Works: SequenceDiagram {}
+    var _title = 'Sequence Diagram';
+    var _linktitle = 'Foo';
+    var _document = 'foo.html';
+    var _directory = 'foo';
+
+    console.log('systems system execute - documentation +++++++ CHECKPOINT 007')
+
+    _sequencediagram.append('<title>' + _title + '</title>'
+      ,'<h1>' + _title +
+      '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
+      ' + _linktitle + '</a></li></ul>');
+
 
 
     var resourceForUuid = {};
