@@ -96,7 +96,7 @@ System.prototype.execute = function(arguments) {
     var _directory = 'documentation';
 
     // START TEST AREA
-    
+  
     var _jsdom = _proxies().proxy().libraries().library().jsdom();
     console.log('systems system execute - documentation _jsdom: ', _jsdom)
 
@@ -107,11 +107,10 @@ System.prototype.execute = function(arguments) {
       '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
       ' + _linktitle + '</a></li></ul>');
 
-/*
-    var _documentation = _documentations.documentation();
+    var _documentation = _documentations.documentation(); // Throws error  [TypeError: path must be a string]  Fix it!!
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 001')
-
+/*
     console.log('systems system execute - documentation: ',
       _documentation) // Works: Documentation {}
     //_documentation.setfilepath(_filepath); Gets set inside documentations
