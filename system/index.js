@@ -94,13 +94,20 @@ System.prototype.execute = function(arguments) {
     var _linktitle = 'Documentation';
     var _document = 'documentation.html';
     var _directory = 'documentation';
+
+    // START TEST AREA
+    
+    var _jsdom = _proxies().proxy().libraries().library().jsdom();
+    console.log('systems system execute - documentation _jsdom: ', _jsdom)
+
+    // END TEST AREA
+
     _documentations.append('<title>' + _title + '</title>'
       ,'<h1>' + _title +
       '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
       ' + _linktitle + '</a></li></ul>');
 
 /*
-
     var _documentation = _documentations.documentation();
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 001')
@@ -167,7 +174,6 @@ System.prototype.execute = function(arguments) {
       '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
       ' + _linktitle + '</a></li></ul>');
 */
-
 
     var resourceForUuid = {};
     var layerForLayer = {};
