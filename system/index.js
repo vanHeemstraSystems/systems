@@ -99,14 +99,16 @@ System.prototype.execute = function(arguments) {
       '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
       ' + _linktitle + '</a></li></ul>');
 
+/*
+
     var _documentation = _documentations.documentation();
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 001')
 
     console.log('systems system execute - documentation: ',
       _documentation) // Works: Documentation {}
-    _documentation.setfilepath(_filepath);
-    _documentations.setfilename(_filename);
+    //_documentation.setfilepath(_filepath); Gets set inside documentations
+    //_documentations.setfilename(_filename); Gets set inside documentations
     var _title = 'Documentation';
     var _linktitle = 'UML';
     var _document = 'uml.html';
@@ -121,14 +123,16 @@ System.prototype.execute = function(arguments) {
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 003')
 
+*/
+/*
     var _uml = _documentation.uml();
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 004')
 
     console.log('systems system execute - uml: ',
       _uml) // Works: UML {}
-    _uml.setfilepath(_filepath);
-    _uml.setfilename(_filename);
+    //_uml.setfilepath(_filepath); Gets set inside documentation
+    //_uml.setfilename(_filename); Gets set inside documentation
     var _title = 'UML';
     var _linktitle = 'Sequence Diagram';
     var _document = 'sequencediagram.html';
@@ -141,15 +145,16 @@ System.prototype.execute = function(arguments) {
       '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
       ' + _linktitle + '</a></li></ul>');
 
-
+*/
+/*
     var _sequencediagram = _uml.sequencediagram();
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 006')
 
     console.log('systems system execute - sequencediagram: ',
       _sequencediagram) // Works: SequenceDiagram {}
-    _sequencediagram.setfilepath(_filepath);
-    _sequencediagram.setfilename(_filename);
+    //_sequencediagram.setfilepath(_filepath); Gets set inside uml
+    //_sequencediagram.setfilename(_filename); Gets set inside uml
     var _title = 'Sequence Diagram';
     var _linktitle = 'Foo';
     var _document = 'foo.html';
@@ -161,7 +166,7 @@ System.prototype.execute = function(arguments) {
       ,'<h1>' + _title +
       '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
       ' + _linktitle + '</a></li></ul>');
-
+*/
 
 
     var resourceForUuid = {};
