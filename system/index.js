@@ -90,7 +90,6 @@ System.prototype.execute = function(arguments) {
     _documentations.setproxies(_proxies);
     _documentations.setfilepath(_filepath);
     _documentations.setfilename(_filename);
-    var _title = 'Documentations';
     var _linktitle = 'Documentation';
     var _document = 'documentation.html';
     var _directory = 'documentation';
@@ -99,13 +98,32 @@ System.prototype.execute = function(arguments) {
   
     var _jsdom = _proxies().proxy().libraries().library().jsdom();
     console.log('systems system execute - documentation _jsdom: ', _jsdom)
+    var _htmlDocument = _jsdom.jsdom().implementation.createHTMLDocument('');
+    //_htmlDocument.head.appendChild(head);
+    //_htmlDocument.body.appendChild(body);
+    var _titleElem = _htmlDocument.createElement('title');
+    console.log('systems system execute - documentation _titleElem: ', _titleElem)
+
+    _titleElem.innerHTML = 'Documentations';
+    console.log('systems system execute - documentation _titleElem: ', _titleElem)
+
+    _head = _titleElem; // Possible to add more elements to head
+    console.log('systems system execute - documentation _head: ', _head)
+
+
+    var _ulElem = _htmlDocument.createElement('ul');
+    console.log('systems system execute - documentation _ulElem: ', _ulElem)
+
+    _body = _ulElem; // Possible to add more elements to body
+    console.log('systems system execute - documentation _body: ', _body)
 
     // END TEST AREA
 
-    _documentations.append('<title>' + _title + '</title>'
-      ,'<h1>' + _title +
-      '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
-      ' + _linktitle + '</a></li></ul>');
+    //ORIGINAL _documentations.append('<title>' + _title + '</title>'
+    //  ,'<h1>' + _title +
+    //  '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
+    //  ' + _linktitle + '</a></li></ul>');
+    _documentations.append(_head, _body); // NEW
 
     var _documentation = _documentations.documentation(); // Throws error  [TypeError: path must be a string]  Fix it!!
 
