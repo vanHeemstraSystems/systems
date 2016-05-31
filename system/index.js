@@ -11,10 +11,38 @@ function System() {
   // add key value pairs here
   // self's are not directly publicly accessible, only through their public method(s)
   // use self's here for protection from direct access
+  self._directory = 'documentations';
+  self._document = 'documentations.html';  
   self._filename = ''; // Will be set
   self._filepath = ''; // Will be set
+  self._linktitle = 'Documentations';
   self._proxies = {}; // Will be set
+  self._style = 'body { background-color: #ffffff; }'; // Default  
   self._title = 'System'; // Default
+}
+
+System.prototype.directory = function() {
+  return self._directory;
+}
+
+System.prototype.setdirectory = function(fnOrValue) {
+  self._directory = fnOrValue;
+}
+
+System.prototype.document = function() {
+  return self._document;
+}
+
+System.prototype.setdocument = function(fnOrValue) {
+  self._document = fnOrValue;
+}
+
+System.prototype.linktitle = function() {
+  return self._linktitle;
+}
+
+System.prototype.setlinktitle = function(fnOrValue) {
+  self._linktitle = fnOrValue;
 }
 
 System.prototype.proxies = function() {
@@ -44,6 +72,15 @@ System.prototype.setfilepath = function(fnOrValue) {
   self._filepath = fnOrValue;
 }
 
+System.prototype.style = function() {
+  console.log('systems system style() called');
+  return self._style;
+}
+
+System.prototype.setstyle = function(fnOrValue) {
+  self._style = fnOrValue;
+}
+
 System.prototype.title = function() {
   console.log('systems system title() called');
   return self._title;
@@ -67,6 +104,7 @@ System.prototype.execute = function(arguments) {
   var _filename = this.filename();
   var _filepath = this.filepath();
   var _title = this.title();
+  var _style = this.style();
   /*
    * ONLY ENDPOINTS OF _proxies ARE Promises, e.g. _proxies().proxy().libraries().library().path()
    * WE POSTPONE TO USE A Promise DOWN THE OBJECT HIERARCHY AS FAR DOWN AS FEASIBLE
@@ -90,54 +128,58 @@ System.prototype.execute = function(arguments) {
     _documentations.setproxies(_proxies);
     _documentations.setfilepath(_filepath);
     _documentations.setfilename(_filename);
-    var _linktitle = 'Documentation';
-    var _document = 'documentation.html';
-    var _directory = 'documentation';
+    var _linktitle = 'Documentations'; // this.linktitle();  <- Is out of reach
+    var _document = 'documentations.html'; // this.document(); <- Is out of reach
+    var _directory = 'documentations'; // this.directory(); <- Is out of reach
+    var _headArray = [];
+    var _bodyArray = [];
 
-    // START TEST AREA
-  
     var _jsdom = _proxies().proxy().libraries().library().jsdom();
     console.log('systems system execute - documentation _jsdom: ', _jsdom)
     var _htmlDocument = _jsdom.jsdom().implementation.createHTMLDocument('');
-    //_htmlDocument.head.appendChild(head);
-    //_htmlDocument.body.appendChild(body);
+
+    var _titleElem = _htmlDocument.createElement('title');
+    console.log('systems system execute - documentation _titleElem: ',
+      _titleElem)
+    _titleElem.innerHTML = _title;
+    console.log('systems system execute - documentation _titleElem: ',
+      _titleElem)
+
     var _styleElem = _htmlDocument.createElement('style');
-    console.log('systems system execute - documentation _styleElem: ', _styleElem)
+    console.log('systems system execute - documentation _styleElem: ',
+      _styleElem)
+    _styleElem.innerHTML = _style;
+    console.log('systems system execute - documentation _styleElem: ',
+      _styleElem)
 
-    _styleElem.innerHTML = 'body { background-color: #ffffff; }';
-    console.log('systems system execute - documentation _styleElem: ', _styleElem)
-
-    _head = _styleElem; // Possible to add more elements to head
-    console.log('systems system execute - documentation _head: ', _head)
+    _headArray.push(_titleElem);
+    _headArray.push(_styleElem); // Possible to add more elements to head
+    console.log('systems system execute - documentation _headArray: ',
+      _headArray)
 
     var _ulElem = _htmlDocument.createElement('ul');
-    console.log('systems system execute - documentation _ulElem: ', _ulElem)
+    console.log('systems system execute - documentation _ulElem: ',
+      _ulElem)
 
     var _liElem = _htmlDocument.createElement('li');
-    console.log('systems system execute - documentation _liElem: ', _liElem)
+    console.log('systems system execute - documentation _liElem: ',
+      _liElem)
 
     var _aElem = _htmlDocument.createElement('a');
-    console.log('systems system execute - documentation _aElem: ', _aElem)
+    console.log('systems system execute - documentation _aElem: ',
+      _aElem)
 
     _aElem.setAttribute("href", "./" + _directory + "/" + _document);
     _aElem.innerHTML = _linktitle;
-
     _liElem.appendChild(_aElem);
-
     _ulElem.appendChild(_liElem);
+    _bodyArray.push(_ulElem); // Possible to add more elements to body
+    console.log('systems system execute - documentation _bodyArray: ',
+      _bodyArray)
 
-    _body = _ulElem; // Possible to add more elements to body
-    console.log('systems system execute - documentation _body: ', _body)
+    _documentations.append(_headArray, _bodyArray);
 
-    // END TEST AREA
-
-    //ORIGINAL _documentations.append('<title>' + _title + '</title>'
-    //  ,'<h1>' + _title +
-    //  '</h1><ul><li><a href="./' + _directory + '/' + _document + '"> \
-    //  ' + _linktitle + '</a></li></ul>');
-    _documentations.append(_head, _body); // NEW
- 
-    var _documentation = _documentations.documentation(); // Throws error  [TypeError: path must be a string]  Fix it!!
+    var _documentation = _documentations.documentation();
 
     console.log('systems system execute - documentation +++++++ CHECKPOINT 001')
 /*
