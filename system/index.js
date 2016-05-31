@@ -114,6 +114,19 @@ System.prototype.execute = function(arguments) {
     var _ulElem = _htmlDocument.createElement('ul');
     console.log('systems system execute - documentation _ulElem: ', _ulElem)
 
+    var _liElem = _htmlDocument.createElement('li');
+    console.log('systems system execute - documentation _liElem: ', _liElem)
+
+    var _aElem = _htmlDocument.createElement('a');
+    console.log('systems system execute - documentation _aElem: ', _aElem)
+
+    _aElem.setAttribute("href", "./" + _directory + "/" + _document);
+    _aElem.innerHTML = _linktitle;
+
+    _liElem.appendChild(_aElem);
+
+    _ulElem.appendChild(_liElem);
+
     _body = _ulElem; // Possible to add more elements to body
     console.log('systems system execute - documentation _body: ', _body)
 
