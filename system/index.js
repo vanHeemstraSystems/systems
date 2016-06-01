@@ -170,6 +170,7 @@ System.prototype.execute = function(arguments) {
 
     _styleArray.push(_styleElem);
 
+    /* Script: JQuery */
     var _scriptElem = _htmlDocument.createElement('script');
     _scriptElem.setAttribute("type", "text/javascript");
     _scriptElem.setAttribute("src", "../jquery/dist/js/jquery.min.js");
@@ -178,6 +179,7 @@ System.prototype.execute = function(arguments) {
 
     _scriptArray.push(_scriptElem);
 
+    /* Script: Bootstrap */
     var _scriptElem = _htmlDocument.createElement('script');
     _scriptElem.setAttribute("type", "text/javascript");
     _scriptElem.setAttribute("src", "../bootstrap/dist/js/bootstrap.min.js");
@@ -186,6 +188,7 @@ System.prototype.execute = function(arguments) {
 
     _scriptArray.push(_scriptElem);
 
+    /* Head */
     _headArray.push(_titleElem);
 
     _styleArray.forEach(function(styleElem) {
@@ -193,7 +196,7 @@ System.prototype.execute = function(arguments) {
     }, _headArray);
 
     _scriptArray.forEach(function(scriptElem) {
-      _headArray.push(_scriptElem);
+      _headArray.push(scriptElem);
     }, _headArray);
 
     console.log('systems system execute - documentation _headArray: ',
