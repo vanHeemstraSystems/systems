@@ -203,10 +203,14 @@ System.prototype.execute = function(arguments) {
       _headArray)
 
     var _ulElem = _htmlDocument.createElement('ul');
+    _ulElem.setAttribute("class",
+      "list-group");
     console.log('systems system execute - documentation _ulElem: ',
       _ulElem)
 
     var _liElem = _htmlDocument.createElement('li');
+    _liElem.setAttribute("class",
+      "list-group-item");
     console.log('systems system execute - documentation _liElem: ',
       _liElem)
 
