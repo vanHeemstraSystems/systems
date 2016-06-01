@@ -179,10 +179,9 @@ System.prototype.execute = function(arguments) {
 
     _documentations.append(_headArray, _bodyArray);
 
+/*
     var _documentation = _documentations.documentation();
 
-    console.log('systems system execute - documentation +++++++ CHECKPOINT 001')
-/*
     console.log('systems system execute - documentation: ',
       _documentation) // Works: Documentation {}
     //_documentation.setfilepath(_filepath); Gets set inside documentations
