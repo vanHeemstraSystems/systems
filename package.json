@@ -4,7 +4,8 @@
   "description": "The Systems Subtree",
   "main": "systems.js",
   "scripts": {
-    "preinstall": "npm install -g grunt bower",
+    "preinstall": "npm install -g grunt grunt-cli bower",
+	"postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
