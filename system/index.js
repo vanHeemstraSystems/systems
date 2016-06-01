@@ -131,6 +131,8 @@ System.prototype.execute = function(arguments) {
     var _linktitle = 'Documentations'; // this.linktitle();  <- Is out of reach
     var _document = 'documentations.html'; // this.document(); <- Is out of reach
     var _directory = 'documentations'; // this.directory(); <- Is out of reach
+    var _styleArray = [];
+    var _scriptArray = [];
     var _headArray = [];
     var _bodyArray = [];
 
@@ -148,12 +150,52 @@ System.prototype.execute = function(arguments) {
     var _styleElem = _htmlDocument.createElement('style');
     console.log('systems system execute - documentation _styleElem: ',
       _styleElem)
+    _styleElem.setAttribute("rel",
+      "stylesheet");
+    _styleElem.setAttribute("type",
+      "text/css");
+    _styleElem.setAttribute("href",
+      "../bootstrap/dist/css/bootstrap.min.css");
+    console.log('systems system execute - documentation _styleElem: ',
+      _styleElem)
+
+    _styleArray.push(_styleElem);
+
+    var _styleElem = _htmlDocument.createElement('style');
+    console.log('systems system execute - documentation _styleElem: ',
+      _styleElem)
     _styleElem.innerHTML = _style;
     console.log('systems system execute - documentation _styleElem: ',
       _styleElem)
 
+    _styleArray.push(_styleElem);
+
+    var _scriptElem = _htmlDocument.createElement('script');
+    _scriptElem.setAttribute("type", "text/javascript");
+    _scriptElem.setAttribute("src", "../jquery/dist/js/jquery.min.js");
+    console.log('systems system execute - documentation _scriptElem: ',
+      _scriptElem)
+
+    _scriptArray.push(_scriptElem);
+
+    var _scriptElem = _htmlDocument.createElement('script');
+    _scriptElem.setAttribute("type", "text/javascript");
+    _scriptElem.setAttribute("src", "../bootstrap/dist/js/bootstrap.min.js");
+    console.log('systems system execute - documentation _scriptElem: ',
+      _scriptElem)
+
+    _scriptArray.push(_scriptElem);
+
     _headArray.push(_titleElem);
-    _headArray.push(_styleElem); // Possible to add more elements to head
+
+    _styleArray.forEach(function(styleElem) {
+      _headArray.push(styleElem); // Possible to add more elements to head
+    }, _headArray);
+
+    _scriptArray.forEach(function(scriptElem) {
+      _headArray.push(_scriptElem);
+    }, _headArray);
+
     console.log('systems system execute - documentation _headArray: ',
       _headArray)
 
