@@ -228,6 +228,37 @@ System.prototype.execute = function(arguments) {
     console.log('systems system execute - documentation _headArray: ',
       _headArray)
 
+    /*
+     * Body
+     */
+
+    /* Navbar */
+    var _navElem = _htmlDocument.createElement("nav");
+    _navElem.setAttribute("class",
+      "navbar navbar-light bg-faded");
+    
+    var _ulElem = _htmlDocument.createElement("ul");
+    _ulElem.setAttribute("class",
+      "nav navbar-nav");
+
+    var _liElem = _htmlDocument.createElement("li");
+    _liElem.setAttribute("class",
+      "nav-item active");
+
+    var _aElem = _htmlDocument.createElement("a");
+    _aElem.setAttribute("class",
+      "nav-link");
+    _aElem.setAttribute("href",
+      "#");
+    _aElem.innerHTML = _title; 
+
+    _liElem.appendChild(_aElem);
+    _ulElem.appendChild(_liElem);
+    _navElem.appendChild(_ulElem);
+
+    _bodyArray.push(_navElem);
+
+    /* List */
     var _ulElem = _htmlDocument.createElement('ul');
     _ulElem.setAttribute("class",
       "list-group");
@@ -248,6 +279,7 @@ System.prototype.execute = function(arguments) {
     _aElem.innerHTML = _linktitle;
     _liElem.appendChild(_aElem);
     _ulElem.appendChild(_liElem);
+
     _bodyArray.push(_ulElem); // Possible to add more elements to body
     console.log('systems system execute - documentation _bodyArray: ',
       _bodyArray)
