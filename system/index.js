@@ -177,6 +177,21 @@ System.prototype.execute = function(arguments) {
 
     _styleArray.push(_styleElem);
 
+    /* Style: Bootstrap - sticky footer */
+    var _styleElem = _htmlDocument.createElement('link');
+    console.log('systems system execute - documentation _styleElem: ',
+      _styleElem)
+    _styleElem.setAttribute("rel",
+      "stylesheet");
+    _styleElem.setAttribute("type",
+      "text/css");
+    _styleElem.setAttribute("href",
+      "../assets/bootstrap/dist/css/sticky-footer-navbar.css");
+    console.log('systems system execute - documentation _styleElem: ',
+      _styleElem)
+
+    _styleArray.push(_styleElem);
+
     /* Style: inline */
     var _styleElem = _htmlDocument.createElement('link');
     console.log('systems system execute - documentation _styleElem: ',
@@ -187,42 +202,11 @@ System.prototype.execute = function(arguments) {
 
     _styleArray.push(_styleElem);
 
-    /* Script: JQuery */
-    var _scriptElem = _htmlDocument.createElement('script');
-    _scriptElem.setAttribute("type", "text/javascript");
-    _scriptElem.setAttribute("src", "../assets/jquery/dist/js/jquery.min.js");
-    console.log('systems system execute - documentation _scriptElem: ',
-      _scriptElem)
-
-    _scriptArray.push(_scriptElem);
-
-    /* Script: Tether */
-    var _scriptElem = _htmlDocument.createElement('script');
-    _scriptElem.setAttribute("type", "text/javascript");
-    _scriptElem.setAttribute("src", "../assets/tether/dist/js/tether.min.js");
-    console.log('systems system execute - documentation _scriptElem: ',
-      _scriptElem)
-
-    _scriptArray.push(_scriptElem);
-
-    /* Script: Bootstrap */
-    var _scriptElem = _htmlDocument.createElement('script');
-    _scriptElem.setAttribute("type", "text/javascript");
-    _scriptElem.setAttribute("src", "../assets/bootstrap/dist/js/bootstrap.min.js");
-    console.log('systems system execute - documentation _scriptElem: ',
-      _scriptElem)
-
-    _scriptArray.push(_scriptElem);
-
     /* Head */
     _headArray.push(_titleElem);
 
     _styleArray.forEach(function(styleElem) {
       _headArray.push(styleElem); // Possible to add more elements to head
-    }, _headArray);
-
-    _scriptArray.forEach(function(scriptElem) {
-      _headArray.push(scriptElem);
     }, _headArray);
 
     console.log('systems system execute - documentation _headArray: ',
@@ -258,6 +242,11 @@ System.prototype.execute = function(arguments) {
 
     _bodyArray.push(_navElem);
 
+    /* Container */
+    var _divElem = _htmlDocument.createElement("div");
+    _divElem.setAttribute("class",
+      "container")
+
     /* List */
     var _ulElem = _htmlDocument.createElement('ul');
     _ulElem.setAttribute("class",
@@ -279,10 +268,61 @@ System.prototype.execute = function(arguments) {
     _aElem.innerHTML = _linktitle;
     _liElem.appendChild(_aElem);
     _ulElem.appendChild(_liElem);
+    _divElem.appendChild(_ulElem);
 
-    _bodyArray.push(_ulElem); // Possible to add more elements to body
+    _bodyArray.push(_divElem); // Possible to add more elements to body
     console.log('systems system execute - documentation _bodyArray: ',
       _bodyArray)
+
+    /* Footer */
+    var _footerElem = _htmlDocument.createElement("footer");
+    _footerElem.setAttribute("class",
+      "footer");
+    var _divElem = _htmlDocument.createElement("div");
+    _divElem.setAttribute("class",
+      "container");
+    var _spanElem = _htmlDocument.createElement("span");
+    _spanElem.setAttribute("class",
+      "text_muted");
+    _spanElem.innerHTML = "Generated on: " +new Date;
+
+    _divElem.appendChild(_spanElem);
+    _footerElem.appendChild(_divElem);
+
+    _bodyArray.push(_footerElem);
+
+    /* Scripts, put at bottom of body to make the page load faster */
+
+    /* Script: JQuery */
+    var _scriptElem = _htmlDocument.createElement('script');
+    _scriptElem.setAttribute("type", "text/javascript");
+    _scriptElem.setAttribute("src", "../assets/jquery/dist/js/jquery.min.js");
+    console.log('systems system execute - documentation _scriptElem: ',
+      _scriptElem)
+
+    _scriptArray.push(_scriptElem);
+
+    /* Script: Tether */
+    var _scriptElem = _htmlDocument.createElement('script');
+    _scriptElem.setAttribute("type", "text/javascript");
+    _scriptElem.setAttribute("src", "../assets/tether/dist/js/tether.min.js");
+    console.log('systems system execute - documentation _scriptElem: ',
+      _scriptElem)
+
+    _scriptArray.push(_scriptElem);
+
+    /* Script: Bootstrap */
+    var _scriptElem = _htmlDocument.createElement('script');
+    _scriptElem.setAttribute("type", "text/javascript");
+    _scriptElem.setAttribute("src", "../assets/bootstrap/dist/js/bootstrap.min.js");
+    console.log('systems system execute - documentation _scriptElem: ',
+      _scriptElem)
+
+    _scriptArray.push(_scriptElem);
+
+    _scriptArray.forEach(function(scriptElem) {
+      _bodyArray.push(scriptElem);
+    }, _bodyArray);
 
     _documentations.append(_headArray, _bodyArray);
 
