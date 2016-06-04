@@ -156,7 +156,7 @@ System.prototype.execute = function(arguments) {
     _styleElem.setAttribute("type",
       "text/css");
     _styleElem.setAttribute("href",
-      "../assets/tether/dist/css/tether.min.css");
+      "../../assets/asset/tether/dist/css/tether.min.css");
     console.log('systems system execute - documentation _styleElem: ',
       _styleElem)
 
@@ -171,7 +171,7 @@ System.prototype.execute = function(arguments) {
     _styleElem.setAttribute("type",
       "text/css");
     _styleElem.setAttribute("href",
-      "../assets/bootstrap/dist/css/bootstrap.min.css");
+      "../../assets/asset/bootstrap/dist/css/bootstrap.min.css");
     console.log('systems system execute - documentation _styleElem: ',
       _styleElem)
 
@@ -186,7 +186,7 @@ System.prototype.execute = function(arguments) {
     _styleElem.setAttribute("type",
       "text/css");
     _styleElem.setAttribute("href",
-      "../assets/bootstrap/dist/css/sticky-footer-navbar.css");
+      "../../assets/asset/bootstrap/dist/css/sticky-footer-navbar.css");
     console.log('systems system execute - documentation _styleElem: ',
       _styleElem)
 
@@ -296,7 +296,7 @@ System.prototype.execute = function(arguments) {
     /* Script: JQuery */
     var _scriptElem = _htmlDocument.createElement('script');
     _scriptElem.setAttribute("type", "text/javascript");
-    _scriptElem.setAttribute("src", "../assets/jquery/dist/js/jquery.min.js");
+    _scriptElem.setAttribute("src", "../../assets/asset/jquery/dist/js/jquery.min.js");
     console.log('systems system execute - documentation _scriptElem: ',
       _scriptElem)
 
@@ -305,7 +305,7 @@ System.prototype.execute = function(arguments) {
     /* Script: Tether */
     var _scriptElem = _htmlDocument.createElement('script');
     _scriptElem.setAttribute("type", "text/javascript");
-    _scriptElem.setAttribute("src", "../assets/tether/dist/js/tether.min.js");
+    _scriptElem.setAttribute("src", "../../assets/asset/tether/dist/js/tether.min.js");
     console.log('systems system execute - documentation _scriptElem: ',
       _scriptElem)
 
@@ -314,7 +314,7 @@ System.prototype.execute = function(arguments) {
     /* Script: Bootstrap */
     var _scriptElem = _htmlDocument.createElement('script');
     _scriptElem.setAttribute("type", "text/javascript");
-    _scriptElem.setAttribute("src", "../assets/bootstrap/dist/js/bootstrap.min.js");
+    _scriptElem.setAttribute("src", "../../assets/asset/bootstrap/dist/js/bootstrap.min.js");
     console.log('systems system execute - documentation _scriptElem: ',
       _scriptElem)
 
