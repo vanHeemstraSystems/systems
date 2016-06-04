@@ -97,9 +97,6 @@ System.prototype.execute = function(arguments) {
   var _instructions = {};
   var instruction = {};
   var _proxies = require('../../proxies/proxies');
-
-  console.log('systems system execute +++++++ CHECKPOINT 000')
-
   var _arguments = arguments;
   var _filename = this.filename();
   var _filepath = this.filepath();
@@ -121,16 +118,14 @@ System.prototype.execute = function(arguments) {
     return (proxies);
   }) /* EOF join proxies */
   .then(function(proxies) {
-
-    console.log('systems system execute - documentation +++++++ CHECKPOINT 000')
-
+    /* Documentations */
     var _documentations = _proxies().proxy().documentations();
     _documentations.setproxies(_proxies);
     _documentations.setfilepath(_filepath);
     _documentations.setfilename(_filename);
-    var _linktitle = 'Documentations'; // this.linktitle();  <- Is out of reach
-    var _document = 'documentations.html'; // this.document(); <- Is out of reach
-    var _directory = 'documentations'; // this.directory(); <- Is out of reach
+    var _linktitle = 'Documentation'; // this.linktitle(); <- Is out of reach
+    var _document = 'documentation.html'; // this.document(); <- Is out of reach
+    var _directory = 'documentation'; // this.directory(); <- Is out of reach
     var _styleArray = [];
     var _scriptArray = [];
     var _headArray = [];
@@ -140,6 +135,7 @@ System.prototype.execute = function(arguments) {
     console.log('systems system execute - documentation _jsdom: ', _jsdom)
     var _htmlDocument = _jsdom.jsdom().implementation.createHTMLDocument('');
 
+    /* Title: System */
     var _titleElem = _htmlDocument.createElement('title');
     console.log('systems system execute - documentation _titleElem: ',
       _titleElem)
@@ -326,11 +322,13 @@ System.prototype.execute = function(arguments) {
 
     _documentations.append(_headArray, _bodyArray);
 
-/*
+    /* Documentation */
     var _documentation = _documentations.documentation();
 
     console.log('systems system execute - documentation: ',
       _documentation) // Works: Documentation {}
+
+/*      
     //_documentation.setfilepath(_filepath); Gets set inside documentations
     //_documentations.setfilename(_filename); Gets set inside documentations
     var _title = 'Documentation';
