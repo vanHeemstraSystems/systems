@@ -8,16 +8,17 @@ var self = this; // Set the context locally, for access protection
  */
 function System() {
   console.log('systems system - System called');
-  // add key value pairs here
-  // self's are not directly publicly accessible, only through their public method(s)
+  // Add key value pairs here
+  // self's are not directly publicly accessible,
+  // only through their public method(s)
   // use self's here for protection from direct access
   self._directory = 'documentations';
-  self._document = 'documentations.html';  
+  self._document = 'documentations.html';
   self._filename = ''; // Will be set
   self._filepath = ''; // Will be set
   self._linktitle = 'Documentations';
   self._proxies = {}; // Will be set
-  self._style = 'body { background-color: #ffffff; }'; // Default  
+  self._style = 'body { background-color: #ffffff; }'; // Default
   self._title = 'System'; // Default
 }
 
@@ -103,8 +104,10 @@ System.prototype.execute = function(arguments) {
   var _title = this.title();
   var _style = this.style();
   /*
-   * ONLY ENDPOINTS OF _proxies ARE Promises, e.g. _proxies().proxy().libraries().library().path()
-   * WE POSTPONE TO USE A Promise DOWN THE OBJECT HIERARCHY AS FAR DOWN AS FEASIBLE
+   * ONLY ENDPOINTS OF _proxies ARE Promises,
+   * e.g. _proxies().proxy().libraries().library().path()
+   * WE POSTPONE TO USE A Promise DOWN THE OBJECT HIERARCHY
+   * AS FAR DOWN AS FEASIBLE
    * UNTIL WE NEED THE Promise RESOLVED
    */
   console.log('systems system execute - _proxies: ', _proxies)
@@ -123,9 +126,9 @@ System.prototype.execute = function(arguments) {
     _documentations.setproxies(_proxies);
     _documentations.setfilepath(_filepath);
     _documentations.setfilename(_filename);
-    var _linktitle = 'Documentation'; // this.linktitle(); <- Is out of reach
-    var _document = 'documentation.html'; // this.document(); <- Is out of reach
-    var _directory = 'documentation'; // this.directory(); <- Is out of reach
+    var _linktitle = 'Documentations'; // this.linktitle(); <- Is out of reach
+    var _document = 'documentations.html'; // this.document(); <- Is out of reach
+    var _directory = 'documentations'; // this.directory(); <- Is out of reach
     var _styleArray = [];
     var _scriptArray = [];
     var _headArray = [];
