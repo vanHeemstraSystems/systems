@@ -121,6 +121,9 @@ System.prototype.execute = function(arguments) {
     return (proxies);
   }) /* EOF join proxies */
   .then(function(proxies) {
+
+    /* ========================================================================= */
+
     /* Documentations */
     var _documentations = _proxies().proxy().documentations();
     _documentations.setproxies(_proxies);
@@ -325,11 +328,25 @@ System.prototype.execute = function(arguments) {
 
     _documentations.append(_headArray, _bodyArray);
 
+
+    /* ======================================================================================= */
+
     /* Documentation */
     var _documentation = _documentations.documentation();
 
-    console.log('systems system execute - documentation: ',
+    console.log('systems system execute - documentations documentation: ',
       _documentation) // Works: Documentation {}
+
+    /* ======================================================================================= */
+
+    /* UML */
+    var _uml = _documentation.uml();
+
+    console.log('systems system execute - documentations documentation uml: ',
+      _uml) // Works: UML {}
+
+
+
 
 /*      
     //_documentation.setfilepath(_filepath); Gets set inside documentations
