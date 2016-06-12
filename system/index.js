@@ -348,10 +348,22 @@ System.prototype.execute = function(arguments) {
     /* ======================================================================================= */
 
     /* SequenceDiagram */
-    var _sequencediagram = _uml.sequencediagram();
+    var _sequencediagram = _uml.sequencediagram(); // USE THIS OBJECT _sequencediagram 
+                                                   // TO ATTACH SEQUENCE DIAGRAMS TO,
+                                                   // BY PASSING IT ON TO OTHER MODULES
+                                                   // AS A PROPERTY, THAT CAN RENDER HTML PAGES
+                                                   // CONTAINING SEQUENCE DIAGRAMS OF MODULES
 
     console.log('systems system execute - documentations documentation uml sequencediagram: ',
       _sequencediagram) // Works: SequenceDiagram {}
+
+    /* ======================================================================================= */
+
+    /* System */
+    var _system = _sequencediagram.system();
+
+    console.log('systems system execute - documentations documentation uml sequencediagram system: ',
+      _systemm) // Works: System {}
 
     /* ======================================================================================= */
 
